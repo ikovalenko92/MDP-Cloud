@@ -88,8 +88,8 @@ public class ConsumerExample {
  
     public static void main(String[] args) {
         String zooKeeper = "localhost:2181";
-        String groupId = "test-consumer";
-        String topic = "test";
+        String groupId = "group1";
+        String topic = "test_topic";
         int threads = 2;
  
         ConsumerExample example = new ConsumerExample(zooKeeper, groupId, topic);

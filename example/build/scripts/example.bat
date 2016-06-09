@@ -69,10 +69,10 @@ set CMD_LINE_ARGS=%$
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\example.jar;%APP_HOME%\lib\kafka_2.9.2-0.8.2.2.jar;%APP_HOME%\lib\slf4j-log4j12-1.6.1.jar;%APP_HOME%\lib\junit-3.8.1.jar;%APP_HOME%\lib\javax.json-api-1.0.jar;%APP_HOME%\lib\javax.json-1.0.4.jar;%APP_HOME%\lib\kafka-clients-0.8.2.2.jar;%APP_HOME%\lib\scala-library-2.9.2.jar;%APP_HOME%\lib\metrics-core-2.2.0.jar;%APP_HOME%\lib\zookeeper-3.4.6.jar;%APP_HOME%\lib\jopt-simple-3.2.jar;%APP_HOME%\lib\zkclient-0.3.jar;%APP_HOME%\lib\log4j-1.2.16.jar;%APP_HOME%\lib\snappy-java-1.1.1.7.jar;%APP_HOME%\lib\lz4-1.2.0.jar;%APP_HOME%\lib\jline-0.9.94.jar;%APP_HOME%\lib\netty-3.7.0.Final.jar;%APP_HOME%\lib\slf4j-api-1.7.6.jar
+set CLASSPATH=%APP_HOME%\lib\example.jar;%APP_HOME%\lib\kafka_2.9.2-0.8.2.1.jar;%APP_HOME%\lib\slf4j-log4j12-1.6.1.jar;%APP_HOME%\lib\junit-3.8.1.jar;%APP_HOME%\lib\javax.json-api-1.0.jar;%APP_HOME%\lib\javax.json-1.0.4.jar;%APP_HOME%\lib\scala-library-2.9.2.jar;%APP_HOME%\lib\metrics-core-2.2.0.jar;%APP_HOME%\lib\kafka-clients-0.8.2.1.jar;%APP_HOME%\lib\zookeeper-3.4.6.jar;%APP_HOME%\lib\jopt-simple-3.2.jar;%APP_HOME%\lib\zkclient-0.3.jar;%APP_HOME%\lib\log4j-1.2.16.jar;%APP_HOME%\lib\lz4-1.2.0.jar;%APP_HOME%\lib\snappy-java-1.1.1.6.jar;%APP_HOME%\lib\jline-0.9.94.jar;%APP_HOME%\lib\netty-3.7.0.Final.jar;%APP_HOME%\lib\slf4j-api-1.7.6.jar
 
 @rem Execute example
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %EXAMPLE_OPTS%  -classpath "%CLASSPATH%" com.mdp.example.KafkaExample.PoducerExample %CMD_LINE_ARGS%
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %EXAMPLE_OPTS%  -classpath "%CLASSPATH%" com.mdp.example.KafkaExample.SingleConsumer %CMD_LINE_ARGS%
 
 :end
 @rem End local scope for the variables with windows NT shell
