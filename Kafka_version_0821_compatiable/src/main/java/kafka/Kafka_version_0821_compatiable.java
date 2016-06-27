@@ -108,6 +108,10 @@ public class Kafka_version_0821_compatiable
         hash_codes[0]=1;
 
         for (File file : listOfFiles) { //iterates through all the files in the directory
+            if(file==null){
+                System.out.println("no files in directory");
+                break;
+            }
             //System.out.println(file);
             String[] KafkaMessages = JsonToString.GetKafkaMessage(file);
             int y = KafkaMessages.length;
