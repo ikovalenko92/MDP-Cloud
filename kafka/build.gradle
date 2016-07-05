@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+version = '1.5.0'
+String scalaVersion = '2.10'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.apache.kafka:kafka_2.10:0.8.2.1'
+  compile group: 'org.influxdb', name: 'influxdb-java', version: '2.2'
+
+  compile 'org.apache.spark:spark-core_' + scalaVersion + ':' + version
+  compile 'org.apache.spark:spark-mllib_' + scalaVersion + ':' + version
+  compile 'org.json4s:json4s-native_' + scalaVersion + ':3.+'
+  compile 'org.scala-lang:scala-library:' + scalaVersion + '.+'
+
+  testCompile 'org.scalatest:scalatest_' + scalaVersion + ':2.+'
+  testRuntime 'org.pegdown:pegdown:1.1.0' 
+
+
+  compile 'org.slf4j:slf4j-log4j12:1.6.1'
+  compile 'junit:junit:3.8.1'
+  compile 'javax.json:javax.json-api:1.0'
+  compile 'org.glassfish:javax.json:1.0.4'
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
+}
+
+mainClassName = 'com.mdp.example.KafkaExample.KafkaDemo'
+

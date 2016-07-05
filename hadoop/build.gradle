@@ -1,0 +1,60 @@
+plugins {
+    id "java"
+
+    // Build manipulation
+    id "com.github.johnrengelman.shadow" version "1.2.1"
+
+    // Various quality/bug checks
+    id "findbugs"
+    id "pmd"
+}
+
+description = 'A small collection of example jobs for an Apache Hadoop cluster'
+version = '2.6.0'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.github.samtools:htsjdk:1.+'
+    compile 'org.apache.commons:commons-lang3:3.+'
+    compile 'org.apache.hadoop:hadoop-client:' + version
+    compile 'org.apache.hadoop:hadoop-common:' + version
+    compile 'org.apache.hadoop:hadoop-hdfs:' + version
+    compile 'org.seqdoop:hadoop-bam:7.+'
+    testCompile 'junit:junit:4.+'
+    testCompile(group: 'org.apache.mrunit', name: 'mrunit', version: '1.+') {
+        artifact {
+            classifier = 'hadoop2'
+            name = 'mrunit'
+            type = 'jar'
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.deprecation = true
+}
+
+shadowJar {
+    dependencies {
+        include(dependency('com.github.samtools:htsjdk'))
+        include(dependency('org.apache.commons:commons-lang3'))
+        include(dependency('org.seqdoop:hadoop-bam'))
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        html.enabled = true
+        xml.enabled = false
+    }
+}
+
+jar.dependsOn shadowJar
