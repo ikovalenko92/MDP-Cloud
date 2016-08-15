@@ -11,7 +11,7 @@ Then create a jar with the Consumer.java example in the client folder.
 For explanations of the driver code visit this link and scroll to dstreams:
 https://spark.apache.org/docs/1.6.2/streaming-programming-guide.html
 
-Bellow is an example of how to submit a job to the queue:
+Below is an example of how to submit a job to the queue:
 spark-submit --class Mainclassname --master yarn-client --executor-memory 3g --num-executors 5  --queue <your_queue> path/to/Mainclassname.jar
 
 More examples can be found at:
