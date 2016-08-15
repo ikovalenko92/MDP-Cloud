@@ -1,1 +1,5 @@
-HEllo
+This code must be run on the Desktop in the Lab. It is the only computer with access to the Kafka server's firewall.
+This code ensures that messages will be sent to Kafka before being deleted by the program. 
+To run the code copy the folder to the computer and open the command prompt window with the directory being where ever the folder was copied.
+Shift + right click, is a shortcut to reach the command prompt.
+To run the program type "gradle run".
