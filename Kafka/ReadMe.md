@@ -8,4 +8,4 @@ Shift + right click, is a shortcut to open a shortcut to the commmand prompt win
 
 Make sure to change the directory on line 91 to the correct directory where the data files are being generated.
 
-To run the program type "gradle run".
+To run the program type "gradlew run"
