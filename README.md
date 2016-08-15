@@ -17,19 +17,4 @@ kafka port=9092
 
 InfluxDB program & Grafana must be setup on a computer that is on the Umich network or can VPN with the network otherwise it will not be able to access it through the firewall
 
-InfluxDB accounts:
-read/write access account
-username: cloud_data
-pass: 2016SummerProj
-
-Read access account
-username: graphana_acc
-pass: testBed_read16
-
-InfluxDB
-https://migsae-influx.arc-ts.umich.edu:8086
-
-Grafana:
-https://migsea-influx.arc-ts.umich.edu
-
 
