@@ -15,7 +15,7 @@ migsae-kafka.aura.arc-ts.umich.edu
 zookeeper port=2181
 kafka port=9092
 
-INfluxDB program & Grafana must be setup on a computer that is on the Umich network or can VPN with the network otherwise it will not be able to access it through the firewall
+InfluxDB program & Grafana must be setup on a computer that is on the Umich network or can VPN with the network otherwise it will not be able to access it through the firewall
 
 InfluxDB accounts:
 read/write access account
