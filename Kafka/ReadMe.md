@@ -6,4 +6,6 @@ To run the code copy the folder to the computer and open the command prompt wind
 
 Shift + right click, is a shortcut to reach the command prompt.
 
+Make sure to change the directory on line 91 to the correct directory where the data files are being generated.
+
 To run the program type "gradle run".
