@@ -113,6 +113,7 @@ public class Kafka_version_0821_compatiable
                 //counts how many hashcodes were created
                 hash_codes[0]= hash_codes[0] + 1;
             }
+            file.delete();
         }
         producer.close();
         return hash_codes;
