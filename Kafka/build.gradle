@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.1.2'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+
+// compileJava {
+//     //enable compilation in a separate daemon process
+//     options.fork = true
+//     options.forkOptions.executable = /path_to_javac
+// }
+mainClassName = 'com.KafkaExample.Kafka_version_0821_compatiable'
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+  compile 'org.apache.kafka:kafka_2.9.2:0.8.1.1'
+  compile 'org.slf4j:slf4j-log4j12:1.7.5'
+  compile 'junit:junit:3.8.1'
+  compile 'javax.json:javax.json-api:1.0'
+  compile 'org.glassfish:javax.json:1.0.4'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+shadowJar {
+    dependencies {
+        include(dependency('compile group: org.apache.kafka, name: kafka-clients, version: 0.8.2.1'))
+        include(dependency('org.slf4j:slf4j-log4j12:1.7.5'))
+        include(dependency('junit:junit:3.8.1'))
+        include(dependency('javax.json:javax.json-api:1.0'))
+        include(dependency('org.glassfish:javax.json:1.0.4'))
+        include(dependency('org.scala-lang:scala-library:2.11.1'))
+    }
+}
+
+jar.dependsOn shadowJar
+
+
+
