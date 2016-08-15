@@ -2,7 +2,7 @@ This code must be run on the Desktop in the Lab. It is the only computer with ac
 
 This code ensures that messages will be sent to Kafka before being deleted by the program. 
 
-To run the code copy the folder to the computer and open the command prompt window with the directory being where the folder was copied.
+To run the code copy the folder to the computer and open the command prompt window in the directory being where the folder was copied.
 
 Shift + right click, is a shortcut to open a shortcut to the commmand prompt window.
 
