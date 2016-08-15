@@ -1,19 +1,21 @@
-This Code was built off of the below github repo
+To run the code you must have a flux account with hadoop access and a queue for the hadoop cluster.
+To apply for an account use this form: https://weblogin.umich.edu/?cosign-shibboleth.umich.edu&https://shibboleth.umich.edu/idp/Authn/UWLogin?conversation=e2s1
+
+This code was built using the below github repo
 https://github.com/dibbhatt/kafka-spark-consumer/tree/928fe9eb7d2fefbdd08a9127baa6d3880beee1ff
 
-# Running Spark Kafka Consumer
+To run this code download and load maven into flux under the home directory and copy these files to flux.
+Cd into the folder and run "mvn install".
+Then create a jar with the Consumer.java example in the client folder.
 
-Let assume your Driver code is in xyz.jar which is built using the spark-kafka-consumer as dependency.
+For explanations of the driver code visit this link and scroll to dstreams:
+https://spark.apache.org/docs/1.6.2/streaming-programming-guide.html
 
-Launch this using spark-submit
+Bellow is an example of how to submit a job to the queue:
+spark-submit --class Mainclassname --master yarn-client --executor-memory 3g --num-executors 5  --queue <your_queue> path/to/Mainclassname.jar
 
-./bin/spark-submit --class x.y.z.YourDriver --master spark://x.x.x.x:7077 --executor-memory 5G /<Path_To>/xyz.jar
-
-This will start the Spark Receiver and Fetch Kafka Messages for every partition of the given topic and generates the DStream.
-
-e.g. to Test Consumer provided in the package with your Kafka settings please modify it to point to your Kafka and use below command for spark submit 
-
-./bin/spark-submit --class consumer.kafka.client.Consumer --master spark://x.x.x.x:7077 --executor-memory 5G /<Path_To>/kafka-spark-consumer-1.0.6-jar-with-dependencies.jar
+More examples can be found at:
+http://arc-ts.umich.edu/hadoop-user-guide/
 
 
  
