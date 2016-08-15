@@ -46,20 +46,13 @@ public class Consumer implements Serializable {
 	private void run() {
 
 		Properties props = new Properties();
-		props.put("zookeeper.hosts", "10.252.1.136");
+		props.put("zookeeper.hosts", "migsae-kafka.aura.arc-ts.umich.edu");
 		props.put("zookeeper.port", "2181");
 		props.put("zookeeper.broker.path", "/brokers");
 		props.put("kafka.topic", "test-topic");
 		props.put("kafka.consumer.id", "test-id");
-		props.put("zookeeper.consumer.connection", "10.252.5.113:2182");
+		props.put("zookeeper.consumer.connection", "migsae-kafka.aura.arc-ts.umich.edu:2181");
 		props.put("zookeeper.consumer.path", "/spark-kafka");
-		// Optional Properties
-		props.put("consumer.forcefromstart", "true");
-		props.put("consumer.fetchsizebytes", "1048576");
-		props.put("consumer.fillfreqms", "250");
-		props.put("consumer.backpressure.enabled", "true");
-    props.put("kafka.message.handler.class",
-          "consumer.kafka.IdentityMessageHandler");
 
 		SparkConf _sparkConf = new SparkConf().set(
 				"spark.streaming.receiver.writeAheadLog.enable", "false");
@@ -75,20 +68,14 @@ public class Consumer implements Serializable {
 		JavaDStream<MessageAndMetadata> unionStreams = ReceiverLauncher.launch(
 				jsc, props, numberOfReceivers, StorageLevel.MEMORY_ONLY());
 
-		unionStreams
-				.foreachRDD(new Function2<JavaRDD<MessageAndMetadata>, Time, Void>() {
-
-					@Override
-					public Void call(JavaRDD<MessageAndMetadata> rdd, Time time)
-							throws Exception {
-
-						rdd.collect();
-						System.out.println(" Number of records in this batch "
-								+ rdd.count());
-
-						return null;
-					}
-				});
+		unionStreams.foreachRDD(new Function2<JavaRDD<MessageAndMetadata>, Time, Void>() {
+			@Override
+			public Void call(JavaRDD<MessageAndMetadata> rdd, Time time)throws Exception {
+				rdd.collect();
+				System.out.println(" Number of records in this batch "+ rdd.count());
+				return null;
+				}
+			});
 
 		jsc.start();
 		jsc.awaitTermination();
