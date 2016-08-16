@@ -3,7 +3,7 @@ http://grafana.org/download/
 
 Then use http://docs.grafana.org/installation/ and install it for your system using the custom.ini included in the repo
 
-This is an additional guide on how to install Grafana as a windows serverice:
+This is an additional guide on how to install Grafana as a windows service:
 https://www.youtube.com/watch?v=QJxk0V5i6qM
 
 Add the data sources from influxDB using the information below:
